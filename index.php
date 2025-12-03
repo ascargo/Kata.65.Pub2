@@ -18,3 +18,7 @@ $client3 = new Client('Oriol', 9);
 echo $client1->reserve($pub) . PHP_EOL;
 echo $client2->reserve($pub) . PHP_EOL;
 echo $client3->reserve($pub) . PHP_EOL;
+
+echo $client1->arrive($pub) . PHP_EOL;
+echo $client2->arrive($pub) . PHP_EOL;
+echo $client3->arrive($pub) . PHP_EOL;

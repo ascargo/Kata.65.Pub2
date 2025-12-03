@@ -7,8 +7,10 @@ class Table
         private int $chairs,
         private bool $reserved = false,
         private string $reservedBy = '',
-        private int $reservedPeople = 0
-    ) {}
+        private int $reservedPeople = 0,
+        private bool $occupied = false
+    ) {
+    }
 
     public function getId(): int
     {
@@ -40,5 +42,20 @@ class Table
     public function getReservedPeople(): int
     {
         return $this->reservedPeople;
+    }
+
+    public function isReservedFor(string $name): bool
+    {
+        return $this->reserved && $this->reservedBy === $name;
+    }
+
+    public function isOccupied(): bool
+    {
+        return $this->occupied;
+    }
+
+    public function seat(): void
+    {
+        $this->occupied = true;
     }
 }

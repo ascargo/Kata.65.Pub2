@@ -27,4 +27,16 @@ class Pub
         }
         return null;
     }
+
+    public function arrive(Client $client): string
+    {
+        foreach ($this->tables as $table) {
+            if ($table->isReservedFor($client->getName())) {
+                $table->seat();
+                return "Welcome {$client->getName()}, your table is {$table->getId()}.";
+            }
+        }
+
+        return "No reservation found for {$client->getName()}.";
+    }
 }
